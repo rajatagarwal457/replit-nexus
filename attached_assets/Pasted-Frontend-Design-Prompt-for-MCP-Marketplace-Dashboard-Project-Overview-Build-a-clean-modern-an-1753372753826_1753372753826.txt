@@ -1,0 +1,92 @@
+Frontend Design Prompt for MCP Marketplace & Dashboard
+Project Overview:
+Build a clean, modern, and intuitive React-based frontend for an MCP (Model Control Protocol) marketplace platform inspired by mcpmarket.com and mcpappstore.com. The platform allows users to:
+
+Browse and discover a catalog of MCP servers worldwide.
+
+View detailed MCP pages with extensive features, documentation summaries, and screenshots.
+
+Perform one-click deployments of MCP servers and receive instant access URLs.
+
+Manage their deployed MCP instances on a personalized dashboard, including managing environment variables and server lifecycle (start, stop, redeploy, delete).
+
+Design Inspiration and Style Notes
+Use mcpmarket.com and mcpappstore.com as primary visual and UX inspiration for layout, navigation, and interaction patterns. The style is modern but approachable, with clear typography, balanced whitespace, and a tech/professional feeling.
+
+Responsive design for both desktop and mobile devices.
+
+Clean UI components with intuitive iconography and smooth transitions.
+
+Use a color palette that conveys trust and innovation (blues, teals, and grayscale), but keep enough contrast for accessibility.
+
+Pages & Features to Include
+1. Home / Marketplace
+Search bar and filter options (by category, tags, popularity, newest, etc.)
+
+A grid or list view of MCP cards showing name, short description, rating, and “Deploy” button.
+
+Highlight featured/popular MCPs on top.
+
+Pagination or infinite scroll.
+
+2. MCP Detail Page
+MCP name, logo, maintainer info.
+
+Detailed feature list (bulleted or icon-enhanced).
+
+Embedded documentation viewer or preview snippet.
+
+Screenshots/gallery carousel.
+
+One-click “Deploy” button.
+
+Display authentication info or deployment prerequisites if available.
+
+3. User Authentication & Profile
+Signup/Login forms with OAuth or email/password flows.
+
+Secure password reset and account verification views.
+
+4. User Dashboard
+List of deployed MCP instances with status indicators (running, error, stopped).
+
+Per-instance action buttons: Access URL, Restart, Stop, Delete, View logs.
+
+Ability to add/edit environment variables for each instance through modals or inline forms.
+
+View deployment metadata: creation date, version, resource usage (if available).
+
+Notifications/alerts area for deployment status, errors, updates.
+
+5. Environment Variables Management
+Clear UI to add/remove/update env vars with key/value pairs.
+
+Validation for required formats (e.g., URLs, tokens).
+
+Option to download/upload env var sets as JSON or dotenv files.
+
+Technical/UX Requirements
+Framework: React (preferably with TypeScript).
+
+Routing: React Router or equivalent for SPA navigation.
+
+State Management: Redux, Zustand, or React Context API for global state like user info and deployments.
+
+Styling: TailwindCSS, Chakra UI, Material UI, or styled-components — preference for modular, reusable components.
+
+API Integration: Design placeholder hooks or services for backend calls (e.g., fetching MCP catalog, deployment commands, user deployments, env var updates).
+
+Error Handling: Show user-friendly error messages and loading indicators.
+
+Accessibility: Follow best practices—keyboard nav, aria tags, contrast ratios.
+
+Security: Sanitize user inputs, especially in env vars and deployment forms.
+
+Deliverables
+Fully functional SPA prototype with all above pages/components.
+
+Clean, commented codebase following best coding practices.
+
+README outlining how to run/test and any assumptions.
+
+Optional: wireframe or mockup images if custom styling is heavy.
