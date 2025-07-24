@@ -64,7 +64,8 @@ export function DeploymentCard({ deployment, onStatusChange, onDelete, onUpdateE
     }
   };
 
-  const getInitials = (name: string) => {
+  const getInitials = (name: string | undefined) => {
+    if (!name) return "MC";
     return name.split(' ').map(word => word[0]).join('').substring(0, 2).toUpperCase();
   };
 
@@ -105,9 +106,9 @@ export function DeploymentCard({ deployment, onStatusChange, onDelete, onUpdateE
             </div>
 
             <div className="flex items-center space-x-4">
-              <Badge className={`${getStatusColor(deployment.status)} border-0`}>
-                <span className={`w-1.5 h-1.5 ${getStatusDot(deployment.status)} rounded-full mr-1.5`}></span>
-                {deployment.status.charAt(0).toUpperCase() + deployment.status.slice(1)}
+              <Badge className={`${getStatusColor(deployment.status || 'unknown')} border-0`}>
+                <span className={`w-1.5 h-1.5 ${getStatusDot(deployment.status || 'unknown')} rounded-full mr-1.5`}></span>
+                {deployment.status ? deployment.status.charAt(0).toUpperCase() + deployment.status.slice(1) : 'Unknown'}
               </Badge>
 
               <div className="flex items-center space-x-2">
@@ -125,7 +126,7 @@ export function DeploymentCard({ deployment, onStatusChange, onDelete, onUpdateE
               </div>
 
               <span className="text-sm text-gray-500">
-                {formatDate(deployment.createdAt)}
+                {deployment.createdAt ? formatDate(deployment.createdAt) : 'Unknown'}
               </span>
 
               <div className="flex items-center space-x-1">

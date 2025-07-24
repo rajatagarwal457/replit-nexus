@@ -113,12 +113,40 @@ export class DatabaseStorage implements IStorage {
 
   // Deployment operations
   async getUserDeployments(userId: string): Promise<DeploymentWithMcp[]> {
-    return await db
-      .select()
+    const results = await db
+      .select({
+        id: deployments.id,
+        userId: deployments.userId,
+        mcpId: deployments.mcpId,
+        name: deployments.name,
+        url: deployments.url,
+        status: deployments.status,
+        envVars: deployments.envVars,
+        createdAt: deployments.createdAt,
+        updatedAt: deployments.updatedAt,
+        mcp: {
+          id: mcps.id,
+          name: mcps.name,
+          slug: mcps.slug,
+          description: mcps.description,
+          maintainer: mcps.maintainer,
+          version: mcps.version,
+          category: mcps.category,
+          tags: mcps.tags,
+          rating: mcps.rating,
+          deploymentCount: mcps.deploymentCount,
+          icon: mcps.icon,
+          iconColor: mcps.iconColor,
+          featured: mcps.featured,
+          envVars: mcps.envVars
+        }
+      })
       .from(deployments)
       .leftJoin(mcps, eq(deployments.mcpId, mcps.id))
       .where(eq(deployments.userId, userId))
       .orderBy(desc(deployments.createdAt));
+    
+    return results as DeploymentWithMcp[];
   }
 
   async getDeploymentById(id: number): Promise<Deployment | undefined> {

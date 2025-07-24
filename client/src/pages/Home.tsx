@@ -20,13 +20,13 @@ export default function Home() {
   const { toast } = useToast();
 
   // Fetch MCPs
-  const { data: mcps = [], isLoading } = useQuery({
+  const { data: mcps = [], isLoading } = useQuery<MCPServer[]>({
     queryKey: ["/api/mcps"],
     retry: false,
   });
 
   // Fetch featured MCPs
-  const { data: featuredMcps = [] } = useQuery({
+  const { data: featuredMcps = [] } = useQuery<MCPServer[]>({
     queryKey: ["/api/mcps", "featured=true"],
     retry: false,
   });

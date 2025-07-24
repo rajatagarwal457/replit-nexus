@@ -32,7 +32,7 @@ export default function Dashboard() {
   }, [isAuthenticated, isLoading, toast]);
 
   // Fetch deployments
-  const { data: deployments = [], isLoading: deploymentsLoading } = useQuery({
+  const { data: deployments = [], isLoading: deploymentsLoading } = useQuery<Deployment[]>({
     queryKey: ["/api/deployments"],
     enabled: isAuthenticated,
     retry: false,

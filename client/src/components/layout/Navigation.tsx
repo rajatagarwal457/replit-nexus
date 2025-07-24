@@ -57,7 +57,7 @@ export function Navigation() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center space-x-2 p-1.5">
                     <Avatar className="w-8 h-8">
-                      <AvatarImage src={user.profileImageUrl} alt={user.firstName || "User"} />
+                      <AvatarImage src={user.profileImageUrl || ""} alt={user.firstName || "User"} />
                       <AvatarFallback>
                         {user.firstName?.[0] || user.email?.[0] || "U"}
                       </AvatarFallback>
