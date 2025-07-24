@@ -57,13 +57,13 @@ export function Navigation() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center space-x-2 p-1.5">
                     <Avatar className="w-8 h-8">
-                      <AvatarImage src={user.profileImageUrl || ""} alt={user.firstName || "User"} />
+                      <AvatarImage src={(user as any)?.profileImageUrl || ""} alt={(user as any)?.firstName || "User"} />
                       <AvatarFallback>
-                        {user.firstName?.[0] || user.email?.[0] || "U"}
+                        {(user as any)?.firstName?.[0] || (user as any)?.email?.[0] || "U"}
                       </AvatarFallback>
                     </Avatar>
                     <span className="text-sm font-medium text-gray-700 hidden sm:block">
-                      {user.firstName || user.email}
+                      {(user as any)?.firstName || (user as any)?.email}
                     </span>
                   </Button>
                 </DropdownMenuTrigger>
